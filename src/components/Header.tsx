@@ -60,7 +60,7 @@ export default function Header() {
                                                       </ListItemButton>
                                                 </Link>
                                           </ListItem>
-                                          <ListItem key={"sig"} disablePadding>
+                                          {/* <ListItem key={"sig"} disablePadding>
                                                 <Link to={"/signal"}>
                                                       <ListItemButton>
                                                             <ListItemIcon>
@@ -69,7 +69,7 @@ export default function Header() {
                                                             <ListItemText primary={"Kamera"} />
                                                       </ListItemButton>
                                                 </Link>
-                                          </ListItem>
+                                          </ListItem> */}
                                     </List>
                               </Box>
                         </Drawer>

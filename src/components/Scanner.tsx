@@ -67,7 +67,7 @@ function Scanner() {
 
   if (message === "") {
     return (
-      <div className='flex flex-col items-center '>
+      <div className='flex flex-col items-center p-10'>
         <CircularProgress />
         <div className='p-4'>
           Venter på skanning...
@@ -78,7 +78,7 @@ function Scanner() {
 
   return (
     <div >
-      <div className='flex flex-col items-center '>
+      <div className='flex flex-col items-center p-10'>
         <img src={message} />
       </div>
     </div>

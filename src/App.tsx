@@ -12,12 +12,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <div className='p-10'>
+        <div className=''>
           <Routes>
             <Route path="/" element={"Hei"} />
             <Route path="/scan" element={<Scanner />} />
             <Route path="/camera" element={<Camera />} />
-            <Route path="/signal" element={<Signal />} />
           </Routes>
         </div>
       </BrowserRouter>

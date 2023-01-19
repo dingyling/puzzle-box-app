@@ -5,9 +5,7 @@ function Camera() {
 
   return (
     <div >
-      <div className=''>
-        Kamera kommer
-      </div>
+      <iframe id="serviceFrameSend" src="camera.html" className='w-full' height={1000} />
     </div>
   );
 }
