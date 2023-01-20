@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
+import Unlock from './Unlock';
 
 function Scanner() {
+  const localStorageItem = "scanUnlocked";
 
   const [message, setMessage] = useState("");
+  const [unlocked, setUnlocked] = useState(localStorage.getItem(localStorageItem) !== null);
 
   const getMessageContent = (mes: string[]) => {
     switch (mes[0]) {
@@ -64,6 +67,16 @@ function Scanner() {
   useEffect(() => {
     scan();
   }, [scan]);
+
+  if (!unlocked) {
+    return (
+      <Unlock
+        password="scanpassord"
+        localStorageItem={localStorageItem}
+        setUnlocked={setUnlocked}
+      />
+    );
+  }
 
   if (message === "") {
     return (

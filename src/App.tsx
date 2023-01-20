@@ -5,7 +5,7 @@ import Scanner from './components/Scanner';
 import Header from './components/Header';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Camera from './components/Camera';
-import Signal from './components/Signal';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Header />
         <div className=''>
           <Routes>
-            <Route path="/" element={"Hei"} />
+            <Route path="/" element={<Home/>} />
             <Route path="/scan" element={<Scanner />} />
             <Route path="/camera" element={<Camera />} />
           </Routes>
