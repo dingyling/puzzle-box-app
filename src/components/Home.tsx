@@ -10,7 +10,7 @@ function Home() {
        <div className='text-xl'>Heisann!</div>
        <br/>
        <div>Jaså, så du har lyst til å komme deg inn i denne kassa? Jaja, det er bare å prøve! Det kan hende at du kommer til å trenge noen "verktøy" som du finner
-         på dette nettstedet. Du finner dem i menyen på toppen av siden. Men det kan selvsagt ikke være så enkelt, først må du finne passordene for å låse opp verktøyene!
+         på dette nettstedet. Du finner dem i menyen på toppen av siden. Men det kan selvsagt ikke være så enkelt, først må du finne passordene for å låse opp verktøyene! Psst: Første passord er "<b>passord</b>"
          Lykke til!
        </div>
       </div>

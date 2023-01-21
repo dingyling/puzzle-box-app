@@ -12,9 +12,9 @@ function Scanner() {
     switch (mes[0]) {
       case "C":
         return `https://deckofcardsapi.com/static/img/${mes[1]}.png`
-      case "B":
-        // TODO: Read URL record with record data.
-        return "";
+      case "S":
+        const img = require(`../images/${mes[1]}.png`);
+        return img;
       default:
         return "";
       // TODO: Handle other records with record data.

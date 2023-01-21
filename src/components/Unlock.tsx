@@ -30,7 +30,7 @@ function Unlock({password, localStorageItem, setUnlocked}: Props) {
       <TextField
         id="outlined-password-input"
         label="Passord"
-        type="password"
+        // type="password"
         onChange={(event) => {setPass(event.target.value)}}
         value={pass}
       />

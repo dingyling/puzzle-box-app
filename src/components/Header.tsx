@@ -25,17 +25,6 @@ export default function Header() {
                                           <HomeIcon />
                                     </IconButton>
                               </Link>
-                              <Link to={"/scan"}>
-                                    <IconButton
-                                          size="large"
-                                          edge="start"
-                                          color="inherit"
-                                          aria-label="menu"
-                                          sx={{ mr: 2 }}
-                                    >
-                                          <NfcIcon />
-                                    </IconButton>
-                              </Link>
                               <Link to={"/camera"}>
                                     <IconButton
                                           size="large"
@@ -45,6 +34,17 @@ export default function Header() {
                                           sx={{ mr: 2 }}
                                     >
                                           <CameraAltIcon />
+                                    </IconButton>
+                              </Link>
+                              <Link to={"/scan"}>
+                                    <IconButton
+                                          size="large"
+                                          edge="start"
+                                          color="inherit"
+                                          aria-label="menu"
+                                          sx={{ mr: 2 }}
+                                    >
+                                          <NfcIcon />
                                     </IconButton>
                               </Link>
                         </Toolbar>
