@@ -3,7 +3,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Unlock from './Unlock';
 
 function Scanner() {
-  const localStorageItem = "scanUnlocked";
+  const localStorageItem = "643251";
 
   const [message, setMessage] = useState("");
   const [unlocked, setUnlocked] = useState(localStorage.getItem(localStorageItem) !== null);
