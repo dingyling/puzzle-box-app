@@ -1,28 +1,54 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Unlock from './Unlock';
 
 function Scanner() {
-  const localStorageItem = "643251";
+  const localStorageItem = "scanUnlocked";
 
-  const [message, setMessage] = useState("");
+  const stickersScanned = useRef<string[]>([]);
+  const scanInit = useRef(false);
+
+  const [imgSrc, setImgSrc] = useState("");
   const [unlocked, setUnlocked] = useState(localStorage.getItem(localStorageItem) !== null);
 
-  const getMessageContent = (mes: string[]) => {
+  const getImgSrc = (mes: string[]) => {
     switch (mes[0]) {
       case "C":
-        return `https://deckofcardsapi.com/static/img/${mes[1]}.png`
+        setImgSrc(`https://deckofcardsapi.com/static/img/${mes[1]}.png`);
+         break;
       case "S":
         const img = require(`../images/${mes[1]}.png`);
-        return img;
+        setImgSrc(img);
+        break;
+      case "G":
+        // Special case: Check for sticker numbering
+        let gif;
+        if (!stickersScanned.current.includes(mes[1])) {
+          stickersScanned.current = [...stickersScanned.current, mes[1]];
+          const length = stickersScanned.current.length;
+          const image = require(`../images/paper${length}.gif`);
+
+          var imgPreloader = new Image();
+          // define onload (= image loaded)
+          imgPreloader.onload = function () {
+            setImgSrc(imgPreloader.src);
+          };
+          // set image source
+          imgPreloader.src = image;
+        } else {
+          // Basically set image as same image
+          const length = stickersScanned.current.length;
+          const image = require(`../images/paper${length}.gif`);
+          setImgSrc(image);
+        }
+        break;
       default:
-        return "";
+        break;
       // TODO: Handle other records with record data.
     }
   }
 
   const scan = useCallback(async () => {
-    // setMessage(window.NDEFReader);
     if ('NDEFReader' in window) {
       const windoww: any = window;
       try {
@@ -40,10 +66,10 @@ function Scanner() {
         };
 
       } catch (error) {
-        setMessage("Error")
+        setImgSrc("Error")
       };
     }
-  }, [setMessage]);
+  }, [setImgSrc]);
 
   const onReading = ({ message, serialNumber }: any) => {
     for (const record of message.records) {
@@ -52,7 +78,7 @@ function Scanner() {
           const textDecoder = new TextDecoder(record.encoding);
           const mes = textDecoder.decode(record.data).split(":");
 
-          setMessage(getMessageContent(mes));
+          getImgSrc(mes);
           break;
         case "url":
           // TODO: Read URL record with record data.
@@ -65,20 +91,23 @@ function Scanner() {
 
 
   useEffect(() => {
-    scan();
-  }, [scan]);
+    if (!scanInit.current) {
+      scan();
+      scanInit.current = true;
+    }
+  }, []);
 
   if (!unlocked) {
     return (
       <Unlock
-        password="scanpassord"
+        password="643251"
         localStorageItem={localStorageItem}
         setUnlocked={setUnlocked}
       />
     );
   }
 
-  if (message === "") {
+  if (imgSrc === "") {
     return (
       <div className='flex flex-col items-center p-10'>
         <CircularProgress />
@@ -92,7 +121,7 @@ function Scanner() {
   return (
     <div >
       <div className='flex flex-col items-center p-10'>
-        <img src={message} />
+        <img src={imgSrc} loading="lazy"/>
       </div>
     </div>
   );
