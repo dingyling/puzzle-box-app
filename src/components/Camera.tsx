@@ -11,7 +11,7 @@ function Camera() {
   if (!unlocked) {
     return (
       <Unlock
-        password="passord"
+        password="78963124"
         localStorageItem={localStorageItem}
         setUnlocked={setUnlocked}
       />

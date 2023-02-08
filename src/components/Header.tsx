@@ -6,9 +6,22 @@ import IconButton from '@mui/material/IconButton';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import NfcIcon from '@mui/icons-material/Nfc';
 import HomeIcon from '@mui/icons-material/Home';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
+
+	const location = useLocation();
+
+      const getLocation = () => {
+            switch (location.pathname) {
+                  case "/": 
+                        return "Hjem";
+                  case "/camera": 
+                        return "Kamera";
+                  case "/scan":
+                        return "Skanner"; 
+            }
+      }
 
       return (
             <Box sx={{ flexGrow: 1 }}>
@@ -16,37 +29,16 @@ export default function Header() {
                         <Toolbar>
                               <Link to={"/"}>
                                     <IconButton
-                                          size="large"
+                                          // size="large"
                                           edge="start"
                                           color="inherit"
                                           aria-label="menu"
-                                          sx={{ mr: 2 }}
+                                          sx={{ width: 100 }}
                                     >
                                           <HomeIcon />
                                     </IconButton>
                               </Link>
-                              <Link to={"/camera"}>
-                                    <IconButton
-                                          size="large"
-                                          edge="start"
-                                          color="inherit"
-                                          aria-label="menu"
-                                          sx={{ mr: 2 }}
-                                    >
-                                          <CameraAltIcon />
-                                    </IconButton>
-                              </Link>
-                              <Link to={"/scan"}>
-                                    <IconButton
-                                          size="large"
-                                          edge="start"
-                                          color="inherit"
-                                          aria-label="menu"
-                                          sx={{ mr: 2 }}
-                                    >
-                                          <NfcIcon />
-                                    </IconButton>
-                              </Link>
+                              <div className='flex ml-auto pr-5'>{getLocation()}</div>
                         </Toolbar>
                   </AppBar>
             </Box>

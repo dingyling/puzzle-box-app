@@ -1,23 +1,36 @@
 import { useCallback, useEffect, useState } from 'react';
-import CircularProgress from '@mui/material/CircularProgress';
+import IconButton from '@mui/material/IconButton';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import NfcIcon from '@mui/icons-material/Nfc';
+import { Link } from "react-router-dom";
 
 function Home() {
 
-
   return (
     <div >
-      <div className='flex flex-col items-center p-10'>
-        <div className='text-xl'>Heisann!</div>
-        <br />
-        <div className='mb-2'>
-          Velkommen til <b>EzScape 0.1</b>. Dette eksperimentelle nettstedet inneholder verktøy for å bryte seg inn i trekasser låst med hengelåser og annet faenskap. Hvis du ikke har en trekasse foran deg anbefaler jeg at du finner på noe annet.
-        </div>
-        <div className='mb-4'>
-          Verktøyene du trenger for å åpne kassa finner du i menyen på toppen av siden, men før du kan bruke dem må du låse dem opp. Passordene består av 6-sifrede tallkoder.
-        </div>
-        <div>
-          Lykke til!
-        </div>
+      <div className='flex flex-row items-center justify-center p-10'>
+        <Link to={"/camera"}>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{padding: "20px", margin: "20px", backgroundColor: "#1976d2", color: "white"}}
+          >
+            <CameraAltIcon  sx={{fontSize: "56px"}} />
+          </IconButton>
+        </Link>
+        <Link to={"/scan"}>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{padding: "20px", margin: "20px", backgroundColor: "#1976d2", color: "white"}}
+          >
+            <NfcIcon sx={{fontSize: "56px"}} />
+          </IconButton>
+        </Link>
       </div>
     </div >
   );
