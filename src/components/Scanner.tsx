@@ -14,11 +14,12 @@ function Scanner() {
   const getImgSrc = (mes: string[]) => {
     switch (mes[0]) {
       case "C":
-        setImgSrc(`https://deckofcardsapi.com/static/img/${mes[1]}.png`);
+        const card = require(`../images/card${mes[1]}.png`);
+        setImgSrc(card);
          break;
       case "S":
-        const img = require(`../images/${mes[1]}.png`);
-        setImgSrc(img);
+        const symbol = require(`../images/${mes[1]}.png`);
+        setImgSrc(symbol);
         break;
       case "G":
         // Special case: Check for sticker numbering
