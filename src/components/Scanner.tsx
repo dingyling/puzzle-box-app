@@ -14,16 +14,17 @@ function Scanner() {
   const getImgSrc = (mes: string[]) => {
     switch (mes[0]) {
       case "C":
+        stickersScanned.current = []; // Reset sticker count
         const card = require(`../images/card${mes[1]}.png`);
         setImgSrc(card);
-         break;
+        break;
       case "S":
+        stickersScanned.current = []; // Reset sticker count
         const symbol = require(`../images/${mes[1]}.png`);
         setImgSrc(symbol);
         break;
       case "G":
         // Special case: Check for sticker numbering
-        let gif;
         if (!stickersScanned.current.includes(mes[1])) {
           stickersScanned.current = [...stickersScanned.current, mes[1]];
           const length = stickersScanned.current.length;
@@ -123,6 +124,9 @@ function Scanner() {
     <div >
       <div className='flex flex-col items-center p-10'>
         <img src={imgSrc} loading="lazy"/>
+        {stickersScanned.current.length > 0 &&
+          <div>Skannet {stickersScanned.current.length} av 4</div>
+        }
       </div>
     </div>
   );
