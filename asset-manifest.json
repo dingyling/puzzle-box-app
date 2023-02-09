@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/puzzle-box-app/static/css/main.cc8da0af.css",
-    "main.js": "/puzzle-box-app/static/js/main.d673b49e.js",
+    "main.js": "/puzzle-box-app/static/js/main.da364025.js",
     "static/js/787.459ec551.chunk.js": "/puzzle-box-app/static/js/787.459ec551.chunk.js",
     "static/media/paper4.gif": "/puzzle-box-app/static/media/paper4.9b840edaa697b0411783.gif",
     "static/media/paper3.gif": "/puzzle-box-app/static/media/paper3.d0868ff60ec12293ccdf.gif",
@@ -11,11 +11,11 @@
     "static/media/blue.png": "/puzzle-box-app/static/media/blue.39103876c3704ae48ba2.png",
     "index.html": "/puzzle-box-app/index.html",
     "main.cc8da0af.css.map": "/puzzle-box-app/static/css/main.cc8da0af.css.map",
-    "main.d673b49e.js.map": "/puzzle-box-app/static/js/main.d673b49e.js.map",
+    "main.da364025.js.map": "/puzzle-box-app/static/js/main.da364025.js.map",
     "787.459ec551.chunk.js.map": "/puzzle-box-app/static/js/787.459ec551.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cc8da0af.css",
-    "static/js/main.d673b49e.js"
+    "static/js/main.da364025.js"
   ]
 }
