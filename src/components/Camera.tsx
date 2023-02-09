@@ -20,7 +20,7 @@ function Camera() {
 
   return (
     <div >
-      <iframe id="serviceFrameSend" src="camera.html" className='w-full' height={1000} />
+      <iframe id="serviceFrameSend" src="cameraMode.html" className='w-full' height={1000} />
     </div>
   );
 }

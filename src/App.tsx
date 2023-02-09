@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter
-        basename='puzzle-box-app'
+        basename='/puzzle-box-app'
       >
         <Header />
         <div className=''>
