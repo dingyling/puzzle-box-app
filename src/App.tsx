@@ -10,7 +10,9 @@ import Home from './components/Home';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter
+        basename='puzzle-box-app'
+      >
         <Header />
         <div className=''>
           <Routes>
